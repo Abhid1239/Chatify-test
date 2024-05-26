@@ -6,7 +6,7 @@ const getHeader = () => {
 };
 
 const getUrl = () => {
-  return "https://chatify-api-shweta27alts-projects.vercel.app";
+  return "https://chatify-test.vercel.app/";
 };
 
 // api service to contain all api
@@ -15,11 +15,11 @@ const apiService = {
     return axios.post(getUrl() + "/authentication/login", data, { withCredentials: true }, getHeader());
   },
   register(data) {
-    return axios.post( getUrl() + "/authentication/register/form", data, { withCredentials: true }, getHeader() );
+    return axios.post(getUrl() + "/authentication/register/form", data, { withCredentials: true }, getHeader());
   },
 
   logout() {
-    return axios.post(getUrl() + "/authentication/logout",{},{ withCredentials: true }, getHeader());
+    return axios.post(getUrl() + "/authentication/logout", {}, { withCredentials: true }, getHeader());
   },
 
   usersession() {
@@ -34,40 +34,40 @@ const apiService = {
     return axios.post(getUrl() + "/authentication/update-profile", data, { withCredentials: true }, getHeader())
   },
 
-  createuserchat(data){
+  createuserchat(data) {
     return axios.post(getUrl() + "/chat/create-chat", data, { withCredentials: true }, getHeader())
   },
-  
-  fetchchat(){
+
+  fetchchat() {
     return axios.get(getUrl() + "/chat/fetch-chat", { withCredentials: true }, getHeader())
   },
 
-  groupAdd(data){
+  groupAdd(data) {
     return axios.post(getUrl() + "/chat/group", data, { withCredentials: true }, getHeader())
   },
 
-  fetchmessage(chatId){
+  fetchmessage(chatId) {
     return axios.get(getUrl() + `/chat/message?chatId=${chatId}`, { withCredentials: true }, getHeader())
   },
 
-  sendmessage(data){
+  sendmessage(data) {
     return axios.post(getUrl() + "/chat/message", data, { withCredentials: true }, getHeader())
   },
- 
-  renamegroup(data){
+
+  renamegroup(data) {
     return axios.put(getUrl() + "/chat/rename", data, { withCredentials: true }, getHeader())
   },
 
-  removegroupuser(data){
+  removegroupuser(data) {
     return axios.put(getUrl() + "/chat/group-remove", data, { withCredentials: true }, getHeader())
   },
 
-  addgroupuser(data){
+  addgroupuser(data) {
     return axios.put(getUrl() + "/chat/group-add", data, { withCredentials: true }, getHeader())
   },
 
-  resetpassword(data){
-    return axios.post(getUrl()+ "/authentication/reset-password", data, { withCredentials:true}, getHeader())
+  resetpassword(data) {
+    return axios.post(getUrl() + "/authentication/reset-password", data, { withCredentials: true }, getHeader())
   }
 };
 
