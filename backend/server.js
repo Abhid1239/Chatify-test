@@ -5,19 +5,15 @@ const cors = require("cors");
 const mongo = require("./mongoose.init");
 const path = require("path");
 const dotenv = require("dotenv");
+
+require("./app/routes")(app);
 dotenv.config();
 mongo.connect();
-
-app.use(require("cookie-parser")());
-app.use(bodyParser.json({ limit: "2mb" }));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
 //cors to allow origin and methods
 app.use(
   cors({
     origin: [
+      "*",
       "https://chatify-front-beta.vercel.app",
       "http://localhost:8081",
       "http://localhost:5080",
@@ -29,9 +25,10 @@ app.use(
   })
 );
 
-require("./app/routes")(app);
+app.use(require("cookie-parser")());
+app.use(bodyParser.json({ limit: "2mb" }));
 
-const __dirname1 = path.resolve();
+
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
@@ -48,7 +45,7 @@ app.use(function (req, res, next) {
 
 const server = app.listen(
   process.env.PORT || 8080,
-  console.log("server started on PORT 5080")
+  console.log("server started on PORT ", process.env.PORT || 8080)
 );
 //add a cors origin here for the socket
 const io = require("socket.io")(server, {
