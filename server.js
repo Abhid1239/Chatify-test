@@ -19,12 +19,12 @@ const allowedOrigins = [
   "http://localhost:5080",
   "https://webchatapplication-chatify.fly.dev",
   "http://localhost:8080",
-  "https://chatify-test-6ghl154ho-abhid1239s-projects.vercel.app/"
+  "https://chatify-test-abhid1239s-projects.vercel.app",
+  "https://chatify-test.vercel.app/"
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps, curl requests)
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'The CORS policy for this site does not allow access from the specified origin.';
