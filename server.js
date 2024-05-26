@@ -20,7 +20,7 @@ const allowedOrigins = [
   "https://webchatapplication-chatify.fly.dev",
   "http://localhost:8080",
   "https://chatify-test-abhid1239s-projects.vercel.app",
-  "https://chatify-test.vercel.app/"
+  "https://chatify-test.vercel.app",
 ];
 
 app.use(cors({
