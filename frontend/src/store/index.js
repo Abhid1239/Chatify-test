@@ -1,6 +1,14 @@
 import { createStore } from 'vuex';
-import apiService from "../services/api.services";
+import axios from "axios";
+const getHeader = () => {
+  return {
+    headers: { "Content-Type": "application/json" },
+  };
+};
 
+const getUrl = () => {
+  return "https://chatify-test-git-test-abhid1239s-projects.vercel.app";
+};
 export default createStore({
   state: {
     userData: {
@@ -13,17 +21,17 @@ export default createStore({
   mutations: {
     updateUserData(state, payload) {
       state.userData = payload
-      
+
     }
   },
   actions: {
     async getUserData({ commit }) {
       let responseUser;
       try {
-        let response = await apiService.usersession();
+        let response = await axios.get(getUrl() + "/authentication/usersession", { withCredentials: true }, getHeader());
         responseUser = { user: response.data.user, isLoggedInUser: true }
         commit('updateUserData', responseUser);
-    
+
       }
       catch (err) {
         responseUser = { user: null, isLoggedInUser: false }
