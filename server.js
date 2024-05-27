@@ -34,6 +34,7 @@ app.use(cors({
   },
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
   credentials: true,
+  sameSite: 'none'
 }));
 
 app.use(require("cookie-parser")());
