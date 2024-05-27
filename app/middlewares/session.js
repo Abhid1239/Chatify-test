@@ -19,11 +19,11 @@ const sessionMW = async (req, res, next) => {
         rolling: true,   //roll the session from current date to maxage
         saveUninitialized: false,
         cookie: {
-            // secure: 'auto',
+            secure: true,
             path: '/',
-            // sameSite: 'none',
+            sameSite: 'none',
             maxAge,
-            domain: `localhost`,
+            domain: `chatify-test.vercel.app`, // Update this to match your actual domain
         },
     });
 
