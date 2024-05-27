@@ -12,7 +12,7 @@ app.use(require('cookie-parser')());
 app.use(bodyParser.json({ limit: '2mb' }));
 
 app.use(cors({
-  origin: ["http://localhost:8081", "http://localhost:5080", "https://your-deployed-url.vercel.app"],
+  origin: ["http://localhost:8081", "http://localhost:5080", "https://chatify-test-git-test-abhid1239s-projects.vercel.app", "https://chatify-test-front.vercel.app", "https://chatify-test-front-git-test-abhid1239s-projects.vercel.app"],
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
   credentials: true,
   sameSite: 'none'
@@ -53,7 +53,7 @@ const server = app.listen(process.env.PORT || 8080, () => {
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ["http://localhost:8081", "http://localhost:5080", "https://your-deployed-url.vercel.app"]
+    origin: ["http://localhost:8081", "http://localhost:5080", "https://chatify-test-git-test-abhid1239s-projects.vercel.app", "https://chatify-test-front.vercel.app", "https://chatify-test-front-git-test-abhid1239s-projects.vercel.app"]
   }
 });
 
